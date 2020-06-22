@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <time.h> 
+
+using namespace std;
+
+
+int random(int b){
+
+int rn = (rand() % b);
+return rn;	
+}
+int main()
+{
+	setlocale(0,"");
+srand((time(NULL)));
+char *ar[51] = {"à", "á", "â", "ã", "ä", "å", "¸", "æ", "ç", "è", "é", "ê", "ë", "ì", "í", "î", "ï", "ð", "ñ",
+        "ò", "ó", "ô", "õ", "ö", "÷", "ø", "ù", "ú", "û", "ü", "ý", "þ", "ÿ", "!", ".", ",", "?",":","*","(",")","+","=","_","-","%","#","/","¹",";","@"};
+char *sim[18] = {"!", ".", ",", "?",":","*","(",")","+","=","_","-","%","#","/","¹",";","@"};
+
+	string a = "";
+	string a2="";
+	string b = "";
+	string c = "";
+	int ars = 48;
+	int sims = 18;
+	int k =0;
+	for(int i=0;i<10;i++){	
+		int rand = random(ars);
+		a += ar[rand];
+	}
+	cout << a << endl;
+	
+	for(int i=0;i<10;i++){
+		int rand = random(ars);
+		a2=ar[rand];
+		b += a2;
+		for(int j=0; j<18;j++){
+			if(a2==sim[j]){
+				k=1;
+			}
+		}
+		if(k!=1){
+			c+= a2;
+		}
+		k=0;
+	}
+		b+=" => ";
+	cout << b << c;	
+return 0;
+}
